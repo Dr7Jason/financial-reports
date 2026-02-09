@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전세계 금융 흐름 분석 보고서 - 2026년 2월</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --border-color: #e0e0e0;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            display: none; /* Hidden on mobile by default */
+        }
+
+        .sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: white;
+            font-weight: 500;
+        }
+
+        .sidebar .sub-link {
+            padding-left: 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 900px) {
+            .sidebar {
+                display: block;
+            }
+            .main-content {
+                margin-left: var(--sidebar-width);
+                padding: 4rem;
+            }
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .meta {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #444;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Card/Box Styles for Key Points */
+        .highlight-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .warning-box {
+            background-color: #fdf0ed;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #555;
+            border-left: 3px solid #ccc;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Utility Classes */
+        .text-red { color: var(--accent-color); font-weight: bold; }
+        .text-blue { color: var(--primary-color); font-weight: bold; }
+        
+        .tag {
+            display: inline-block;
+            background-color: #e0e0e0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            color: #555;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .main-content { padding: 1.5rem; }
+            table { display: block; overflow-x: auto; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; width: 100%; max-width: 100%; padding: 0; }
+            body { background-color: white; }
+            a { text-decoration: none; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#summary">1. 요약 (Executive Summary)</a></li>
+            <li><a href="#crypto">2. 암호화폐 시장 폭락 분석</a>
+                <ul>
+                    <li><a href="#crypto-status" class="sub-link">2.1 현황</a></li>
+                    <li><a href="#crypto-cause" class="sub-link">2.2 폭락의 주요 원인</a></li>
+                    <li><a href="#crypto-outlook" class="sub-link">2.3 시장 전망</a></li>
+                </ul>
+            </li>
+            <li><a href="#us-market">3. 미국 금융시장 동향</a></li>
+            <li><a href="#global-market">4. 글로벌 금융시장 흐름</a></li>
+            <li><a href="#china">5. 중국 경제 분석</a></li>
+            <li><a href="#strategy">6. 시사점 및 투자 전략</a>
+                <ul>
+                    <li><a href="#korea-strategy" class="sub-link">6.1 한국 투자자 시사점</a></li>
+                    <li><a href="#crypto-strategy" class="sub-link">6.2 암호화폐 투자 전략</a></li>
+                    <li><a href="#macro-strategy" class="sub-link">6.3 거시경제 시사점</a></li>
+                </ul>
+            </li>
+            <li><a href="#conclusion">7. 결론</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>전세계 금융 흐름 분석 보고서</h1>
+            <div class="subtitle">2026년 2월호: 암호화폐 폭락과 글로벌 금융시장 동향 종합 분석</div>
+            <div class="meta">
+                작성일: 2026-02-09 | 작성자: Claude Code Financial Analysis<br>
+                <span class="tag">암호화폐</span> <span class="tag">비트코인</span> <span class="tag">ETF</span> <span class="tag">연준</span> <span class="tag">거시경제</span>
+            </div>
+        </header>
+
+        <section id="summary">
+            <h2>1. 요약 (Executive Summary)</h2>
+            <div class="highlight-box">
+                <h3>핵심 포인트</h3>
+                <ul>
+                    <li><strong>암호화폐 극단적 공포</strong>: 비트코인 7만 달러 선 붕괴, 공포 지수 9 (FTX 사태 이후 최저)</li>
+                    <li><strong>ETF 대규모 유출</strong>: 2026년 들어 약 $2.3B (약 3조원) 순유출</li>
+                    <li><strong>레버리지 청산 폭포</strong>: 72시간 동안 $5.4B 강제 청산</li>
+                    <li><strong>연준 정책 불확실성</strong>: Kevin Warsh 차기 의장 지명으로 혼란</li>
+                    <li><strong>지정학적 충격</strong>: 베네수엘라, 이란, 그린란드 이슈 동시 발생</li>
+                </ul>
+            </div>
+
+            <h3>주요 지표 요약</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>현재 값</th>
+                        <th>변동률</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>비트코인</td>
+                        <td>$70,884</td>
+                        <td class="text-red">-7% (24h)</td>
+                        <td>연중최고 $126,300 대비 -44%</td>
+                    </tr>
+                    <tr>
+                        <td>공포 지수</td>
+                        <td>9</td>
+                        <td class="text-red">Extreme Fear</td>
+                        <td>전주 16 → 9</td>
+                    </tr>
+                    <tr>
+                        <td>BTC ETF 순유출</td>
+                        <td class="text-red">$2.3B</td>
+                        <td>연초 누적</td>
+                        <td>2월 첫 주 $689M 유출</td>
+                    </tr>
+                    <tr>
+                        <td>금</td>
+                        <td>$4,662</td>
+                        <td class="text-red">-21.2%</td>
+                        <td>사상최고가 $5,600 대비</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="crypto">
+            <h2>2. 암호화폐 시장 폭락 분석</h2>
+            <h3 id="crypto-status">2.1 현황</h3>
+            <p>2026년 2월 8일 기준, 암호화폐 시장은 심각한 약세 국면에 진입했습니다. 비트코인은 $70,884에 거래되고 있으며, 이는 연중 최고가인 $126,300 대비 약 44% 하락한 수준입니다.</p>
+            <p><strong>공포 탐욕 지수(Crypto Fear and Greed Index)는 9</strong>까지 급락하여 "극단적 공포" 상태를 나타냅니다. 이는 FTX 붕괴 당시와 유사한 수준입니다.</p>
+
+            <h3 id="crypto-cause">2.2 폭락의 주요 원인</h3>
+            <h4>1) ETF 대규모 자금 유출</h4>
+            <p>2026년 들어 미국 상장 비트코인 현물 ETF는 약 <strong>$2.3B (약 3조원)</strong> 규모의 순유출을 기록했습니다. 특히 블랙록(IBIT)과 피델리티(FBTC)에서 대규모 유출이 발생하며 기관 투자자들의 이탈을 보여줍니다.</p>
+            
+            <h4>2) 레버리지 청산 연쇄효과</h4>
+            <div class="warning-box">
+                <p><strong>Black Sunday II (2월 1일)</strong>: 단 하루 만에 $2.2B 규모가 청산되며 2025년 10월 이후 최대 청산을 기록했습니다.</p>
+            </div>
+            <p>72시간 동안 총 $5.4B의 강제 청산이 발생했으며, 대부분 롱 포지션(매수)이었습니다.</p>
+
+            <h4>3) 거시경제 및 지정학적 요인</h4>
+            <ul>
+                <li><strong>Kevin Warsh 연준 의장 지명</strong>: 통화정책 불확실성 증대로 리스크 자산 회피 심리 자극</li>
+                <li><strong>지정학적 리스크</strong>: 베네수엘라 마두로 정권 붕괴, 이란 긴장 고조, 그린란드 병합 위협 등으로 전반적인 시장 불안 가중</li>
+            </ul>
+
+            <h3 id="crypto-outlook">2.3 시장 전망</h3>
+            <p>전문가들은 현재 시장이 "완전한 항복(Full Capitulation)" 단계에 있다고 분석합니다.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>확률</th>
+                        <th>전망 내용</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>낙관적</td>
+                        <td>30%</td>
+                        <td>2-3주 내 바닥 형성 후 빠른 반등 ($85,000 회복)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>기본</strong></td>
+                        <td><strong>50%</strong></td>
+                        <td><strong>4-6주 바닥 다지기 ($65k~$75k), 하반기 회복</strong></td>
+                    </tr>
+                    <tr>
+                        <td>비관적</td>
+                        <td>20%</td>
+                        <td>추가 하락으로 $55,000 테스트, 장기 침체</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="us-market">
+            <h2>3. 미국 금융시장 동향</h2>
+            <h3>주식시장: AI Reckoning</h3>
+            <p>"AI 청산(AI Reckoning)" 현상이 나타나고 있습니다. 투자자들은 빅테크 기업들의 수십억 달러 규모 자본 지출(Capex)에 비해 수익이 부족하다고 판단, 매도세로 돌아섰습니다. 아마존, 구글 등 주요 기술주는 실적 발표 후 하락세를 보였습니다.</p>
+
+            <h3>연준 통화정책</h3>
+            <p>Kevin Warsh 지명자는 "AI가 생산성을 높여 인플레이션을 낮출 것"이라며 저금리를 선호하지만, 과거 매파적 이력으로 인해 정책 방향이 불확실합니다. 시장은 2026년 중 25bp~50bp 수준의 제한적 금리 인하를 예상하고 있습니다.</p>
+
+            <h3>원자재: 금/은 폭락</h3>
+            <p>안전자산인 금과 은도 폭락했습니다. (금 -21%, 은 -41%). 이는 <strong>CME 마진 요구사항 인상</strong>(금 8%, 은 15%로 인상)으로 인한 강제 청산이 주된 원인입니다.</p>
+        </section>
+
+        <section id="global-market">
+            <h2>4. 글로벌 금융시장 및 지정학</h2>
+            <h3>달러 약세 심화</h3>
+            <p>달러는 약세 추세에 있으며, 2026년 4분기 달러 인덱스는 94.5로 전망됩니다. 과거와 달리 달러의 "글로벌 충격 흡수 기능"이 약화되고 있습니다.</p>
+
+            <h3>지정학적 리스크 3대장</h3>
+            <ol>
+                <li><strong>베네수엘라</strong>: 미국이 마두로 정권을 전복하고 체포. 라틴아메리카 긴장 고조.</li>
+                <li><strong>이란</strong>: 반정부 시위와 미국의 무력 사용 위협. 중동 불안정성 심화.</li>
+                <li><strong>그린란드</strong>: 트럼프의 매입/병합 위협. 북극 자원 및 전략적 요충지 갈등.</li>
+            </ol>
+        </section>
+
+        <section id="china">
+            <h2>5. 중국 경제 분석</h2>
+            <p>중국은 2026년 5% 성장 목표를 유지할 것으로 보입니다. 골드만삭스는 수출 호조를 근거로 성장률 전망을 4.8%로 상향했습니다.</p>
+            <p>그러나 <strong>디플레이션</strong>과 <strong>소비 부진</strong>은 여전히 심각하며, 부동산 위기도 해결되지 않았습니다. 중국 정부는 935개 품목에 대한 관세 인하를 통해 신기술 육성과 소비 진작을 꾀하고 있습니다.</p>
+        </section>
+
+        <section id="strategy">
+            <h2>6. 시사점 및 투자 전략</h2>
+            
+            <h3 id="korea-strategy">6.1 한국 투자자 시사점</h3>
+            <ul>
+                <li><strong>환율</strong>: 원/달러 환율 1,400원대 중후반 지속 예상. 수출 기업은 환헤지 필수.</li>
+                <li><strong>주식</strong>: AI 섹터 조정기에는 방어적 섹터(필수소비재, 헬스케어) 및 배당주 관심.</li>
+                <li><strong>자산배분</strong>: 현금 비중을 확보하고, 안전자산(채권)과 위험자산의 균형 유지.</li>
+            </ul>
+
+            <h3 id="crypto-strategy">6.2 암호화폐 투자 전략</h3>
+            <div class="highlight-box">
+                <h4>⚠️ 단기 (1~3개월): 보수적 접근</h4>
+                <p>지금은 "떨어지는 칼날"일 수 있습니다. 바닥 신호(공포 지수 반등, ETF 유입 전환)를 확인할 때까지 관망하거나, 레버리지 없이 소액 분할 매수만 유효합니다.</p>
+            </div>
+            <p><strong>중장기 (2026 하반기~)</strong>: 연준 금리 인하와 기관 재진입 시점에 맞춰 비중 확대. 2026년 말 $100,000 재도전 가능성.</p>
+            
+            <h3 id="macro-strategy">6.3 거시경제 시사점</h3>
+            <p>위기는 기회이지만, "인내"가 필요한 시점입니다. 2026년 하반기 회복을 기대하며 현금 여력을 보존하고 리스크를 관리하는 것이 최선의 전략입니다.</p>
+            <p><strong>모니터링 필수 지표</strong>: ETF 플로우, 공포탐욕지수, 연준 금리 정책, 지정학적 뉴스(이란/베네수엘라).</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>7. 결론</h2>
+            <p>2026년 2월은 레버리지 청산과 지정학적 불확실성이 겹친 "퍼펙트 스톰"입니다. 그러나 암호화폐 시장의 역사적 패턴상, 극단적 공포 구간은 장기적으로 훌륭한 매수 기회였습니다.</p>
+            <p>성급함을 버리고 시장이 안정을 찾을 때까지 인내심을 갖고 지켜보시기를 권장합니다.</p>
+        </section>
+
+        <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ddd; font-size: 0.8rem; color: #888; text-align: center;">
+            <p>본 보고서는 참고용 자료이며 투자 권유가 아닙니다. 모든 투자의 책임은 투자자 본인에게 있습니다.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
