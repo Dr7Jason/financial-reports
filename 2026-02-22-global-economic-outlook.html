@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026년 2월 글로벌 경기동향 분석 보고서</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --accent-color: #c0392b;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #fff;
+            --border-color: #e0e0e0;
+            --sidebar-width: 280px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+            display: none;
+        }
+
+        .sidebar h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.8rem;
+        }
+
+        .sidebar a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            transition: color 0.2s;
+        }
+
+        .sidebar a:hover {
+            color: white;
+            font-weight: 500;
+        }
+
+        .sidebar .sub-link {
+            padding-left: 1rem;
+            font-size: 0.85rem;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 0;
+            width: 100%;
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 900px) {
+            .sidebar {
+                display: block;
+            }
+            .main-content {
+                margin-left: var(--sidebar-width);
+                padding: 4rem;
+            }
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .meta {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #444;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        /* Card/Box Styles */
+        .highlight-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .warning-box {
+            background-color: #fdf0ed;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .success-box {
+            background-color: #e8f8f0;
+            border-left: 4px solid var(--success-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .neutral-box {
+            background-color: #fef9e7;
+            border-left: 4px solid var(--warning-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #555;
+            border-left: 3px solid #ccc;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            background-color: #f5f5f5;
+            padding: 1rem;
+        }
+
+        /* Utility Classes */
+        .text-red { color: var(--accent-color); font-weight: bold; }
+        .text-green { color: var(--success-color); font-weight: bold; }
+        .text-blue { color: var(--primary-color); font-weight: bold; }
+        .text-orange { color: var(--warning-color); font-weight: bold; }
+
+        .tag {
+            display: inline-block;
+            background-color: #e0e0e0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            color: #555;
+        }
+
+        .tag-red {
+            background-color: #fadbd8;
+            color: #922b21;
+        }
+
+        .tag-green {
+            background-color: #d5f5e3;
+            color: #1e8449;
+        }
+
+        .source-list {
+            font-size: 0.85rem;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+
+        .source-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .source-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid Layout for Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .summary-card.danger {
+            border-top-color: var(--accent-color);
+        }
+
+        .summary-card.success {
+            border-top-color: var(--success-color);
+        }
+
+        .summary-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .summary-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .main-content { padding: 1.5rem; }
+            table { display: block; overflow-x: auto; }
+            .summary-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Print Styles */
+        @media print {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; width: 100%; max-width: 100%; padding: 0; }
+            body { background-color: white; }
+            a { text-decoration: none; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#summary">핵심 요약</a></li>
+            <li><a href="#crypto">1. 암호화폐 시장</a>
+                <ul>
+                    <li><a href="#crypto-status" class="sub-link">1.1 비트코인 현황</a></li>
+                    <li><a href="#crypto-cause" class="sub-link">1.2 폭락 원인</a></li>
+                    <li><a href="#crypto-outlook" class="sub-link">1.3 전망</a></li>
+                </ul>
+            </li>
+            <li><a href="#us-market">2. 미국 금융시장</a>
+                <ul>
+                    <li><a href="#stock" class="sub-link">2.1 주식시장</a></li>
+                    <li><a href="#fed" class="sub-link">2.2 연준 정책</a></li>
+                </ul>
+            </li>
+            <li><a href="#commodities">3. 원자재 시장</a></li>
+            <li><a href="#china">4. 중국 경제</a></li>
+            <li><a href="#geopolitics">5. 지정학적 리스크</a></li>
+            <li><a href="#matrix">6. 리스크/기회 매트릭스</a></li>
+            <li><a href="#strategy">7. 투자 전략</a></li>
+            <li><a href="#calendar">8. 주요 일정</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>2026년 2월 글로벌 경기동향 분석</h1>
+            <div class="subtitle">암호화폐 바닥 탐색, 연준 금리 인상 가능성, 지정학적 리스크 종합 분석</div>
+            <div class="meta">
+                작성일: 2026-02-22 | 분석 범위: 미국, 중국, 글로벌 금융시장<br>
+                <span class="tag">글로벌경제</span>
+                <span class="tag">암호화폐</span>
+                <span class="tag">연준</span>
+                <span class="tag">원자재</span>
+                <span class="tag">지정학</span>
+            </div>
+        </header>
+
+        <section id="summary">
+            <h2>핵심 요약</h2>
+
+            <div class="summary-grid">
+                <div class="summary-card danger">
+                    <h4>비트코인</h4>
+                    <div class="value text-red">$66K~70K</div>
+                    <p>1월 대비 -30%, 공포지수 9</p>
+                </div>
+                <div class="summary-card">
+                    <h4>S&P 500</h4>
+                    <div class="value">~6,100</div>
+                    <p>변동성 확대, AI 섹터 조정</p>
+                </div>
+                <div class="summary-card">
+                    <h4>연준 금리</h4>
+                    <div class="value">3.50~3.75%</div>
+                    <p>동결, 인상 가능성 언급</p>
+                </div>
+                <div class="summary-card success">
+                    <h4>금 (Gold)</h4>
+                    <div class="value text-green">$5,060</div>
+                    <p>YTD +11%, 강세 지속</p>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>현재 값</th>
+                        <th>변동</th>
+                        <th>비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>비트코인</td>
+                        <td>$66,000~70,000</td>
+                        <td class="text-red">-30% (1월 대비)</td>
+                        <td>기관 매도세, 극단적 공포</td>
+                    </tr>
+                    <tr>
+                        <td>S&P 500</td>
+                        <td>~6,100</td>
+                        <td class="text-orange">변동성 확대</td>
+                        <td>AI 섹터 조정, 2월 말 조정 예상</td>
+                    </tr>
+                    <tr>
+                        <td>연준 금리</td>
+                        <td>3.50~3.75%</td>
+                        <td>동결</td>
+                        <td>금리 인상 가능성 언급</td>
+                    </tr>
+                    <tr>
+                        <td>금</td>
+                        <td>$5,060</td>
+                        <td class="text-green">+11% YTD</td>
+                        <td>지정학적 리스크로 강세</td>
+                    </tr>
+                    <tr>
+                        <td>WTI 유가</td>
+                        <td>$59/bbl</td>
+                        <td class="text-red">약세</td>
+                        <td>공급 과잉 우려</td>
+                    </tr>
+                    <tr>
+                        <td>중국 GDP</td>
+                        <td>4.5~4.8%</td>
+                        <td class="text-orange">둔화</td>
+                        <td>디플레이션 지속</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="crypto">
+            <h2>1. 암호화폐 시장</h2>
+
+            <h3 id="crypto-status">1.1 비트코인 현황</h3>
+            <p>2월은 암호화폐 시장에 <strong>"퍼펙트 스톰"</strong>이 발생한 달입니다. 비트코인은 1월 고점 $90,000에서 30% 하락하여 $66,000~$70,000 구간에서 거래되고 있습니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>지표</th>
+                        <th>수치</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>현재 가격</td>
+                        <td>$66,000~$70,000</td>
+                        <td>1월 고점 $90,000 대비 -30%</td>
+                    </tr>
+                    <tr>
+                        <td>공포 지수</td>
+                        <td class="text-red">9 (Extreme Fear)</td>
+                        <td>FTX 붕괴 수준</td>
+                    </tr>
+                    <tr>
+                        <td>365일 이평선</td>
+                        <td>하회</td>
+                        <td>2022년 3월 이후 처음</td>
+                    </tr>
+                    <tr>
+                        <td>레버리지 청산</td>
+                        <td>$5.4B (72시간)</td>
+                        <td>Black Sunday II (2/1)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="crypto-cause">1.2 폭락의 주요 원인</h3>
+
+            <h4>1) 기관 투자자 이탈</h4>
+            <div class="warning-box">
+                <p><strong>비트코인 ETF 2026년 누적 순유출: $2.3B (약 3조원)</strong></p>
+                <p>블랙록(IBIT), 피델리티(FBTC)에서 대규모 유출 발생. CryptoQuant: "기관 수요가 실질적으로 역전됨"</p>
+            </div>
+
+            <h4>2) 레버리지 청산 도미노</h4>
+            <ul>
+                <li><strong>2월 1일 "Black Sunday II"</strong>: 하루 $2.2B 청산</li>
+                <li><strong>2월 5일</strong>: -6.05σ 이동 (역사상 가장 빠른 단일일 급락 중 하나)</li>
+            </ul>
+
+            <h4>3) 거시경제 불확실성</h4>
+            <ul>
+                <li>Kevin Warsh 연준 의장 지명 → 통화정책 불확실성</li>
+                <li>연준 금리 인상 가능성 재부상</li>
+            </ul>
+
+            <h3 id="crypto-outlook">1.3 전망</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>시나리오</th>
+                        <th>확률</th>
+                        <th>가격 범위</th>
+                        <th>시기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>낙관적</td>
+                        <td>25%</td>
+                        <td class="text-green">$85,000+</td>
+                        <td>2~3주 내 반등</td>
+                    </tr>
+                    <tr style="background-color: #e8f4fd;">
+                        <td><strong>기본</strong></td>
+                        <td><strong>50%</strong></td>
+                        <td><strong>$64,000~$75,000</strong></td>
+                        <td><strong>4~6주 바닥 다지기</strong></td>
+                    </tr>
+                    <tr>
+                        <td>비관적</td>
+                        <td>25%</td>
+                        <td class="text-red">$50,000~$55,000</td>
+                        <td>여름까지 하락</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <blockquote>
+                "비트코인이 여름에 $50,000까지 하락할 수 있다" — Canary Capital CEO
+            </blockquote>
+
+            <div class="source-list">
+                <strong>Sources:</strong>
+                <ul>
+                    <li><a href="https://www.vaneck.com/us/en/blogs/digital-assets/matthew-sigel-what-triggered-bitcoins-major-selloff-in-february-2026/" target="_blank">VanEck - What Triggered Bitcoin's Major Selloff</a></li>
+                    <li><a href="https://www.cnbc.com/2026/02/05/bitcoin-price-today-70000-in-focus.html" target="_blank">CNBC - Bitcoin drops 15%</a></li>
+                    <li><a href="https://www.coindesk.com/markets/2026/02/10/bitcoin-faces-fresh-resistance-near-usd71-000-as-fear-gauge-hits-2022-lows" target="_blank">CoinDesk - Bitcoin faces resistance near $71,000</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="us-market">
+            <h2>2. 미국 금융시장</h2>
+
+            <h3 id="stock">2.1 주식시장 (S&P 500)</h3>
+
+            <h4>현황</h4>
+            <ul>
+                <li><strong>2026년 예상 수익률</strong>: 평균 +12% (Goldman Sachs)</li>
+                <li><strong>EPS 전망</strong>: $306 (전년 대비 +12.5%)</li>
+                <li><strong>밸류에이션</strong>: 고평가 구간, 변동성 리스크 상승</li>
+            </ul>
+
+            <h4>기관별 S&P 500 목표가</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>기관</th>
+                        <th>연말 목표</th>
+                        <th>상승률</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bank of America</td>
+                        <td>7,100</td>
+                        <td>+3.7%</td>
+                    </tr>
+                    <tr>
+                        <td>Goldman Sachs</td>
+                        <td>~6,800</td>
+                        <td>+12%</td>
+                    </tr>
+                    <tr>
+                        <td>Deutsche Bank</td>
+                        <td>8,000</td>
+                        <td>+17%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="neutral-box">
+                <h4>리스크 요인</h4>
+                <ul>
+                    <li><strong>AI Reckoning</strong>: 빅테크 Capex 대비 수익 부진 → 매도세</li>
+                    <li><strong>2월 말~3월</strong>: 주요 사이클 분석상 조정 예상</li>
+                    <li><strong>극단적 강세 심리</strong>: 레버리지 사용 역대 최고 수준</li>
+                </ul>
+            </div>
+
+            <h3 id="fed">2.2 연준(Fed) 금리 정책</h3>
+
+            <h4>현재 상태</h4>
+            <ul>
+                <li><strong>기준금리</strong>: 3.50~3.75% (1월 FOMC 동결)</li>
+                <li><strong>2025년</strong>: 3회 연속 인하 후 중단</li>
+                <li><strong>다음 FOMC</strong>: 3월 (동결 예상)</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>2월 FOMC 의사록 주요 내용 (2/18 공개)</h4>
+                <p>"여러 위원이 인플레이션이 완고하게 높을 경우 <strong>금리 인상 시나리오</strong>를 언급"</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>전망</th>
+                        <th>2026년</th>
+                        <th>2027년</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>금리 인하</td>
+                        <td>최대 2회 (25~50bp)</td>
+                        <td>없음 예상</td>
+                    </tr>
+                    <tr>
+                        <td>금리 인상</td>
+                        <td class="text-red">가능성 부상</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="source-list">
+                <strong>Sources:</strong>
+                <ul>
+                    <li><a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20260128a.htm" target="_blank">Federal Reserve FOMC Statement</a></li>
+                    <li><a href="https://www.jpmorgan.com/insights/markets-and-economy/economy/fed-meeting-january-2026" target="_blank">J.P. Morgan - Fed Leaves Rates Unchanged</a></li>
+                    <li><a href="https://www.bloomberg.com/news/articles/2026-02-18/fed-minutes-show-several-officials-point-to-rate-hike-scenario" target="_blank">Bloomberg - Fed Minutes Show Rate-Hike Scenario</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="commodities">
+            <h2>3. 원자재 시장</h2>
+
+            <h3>3.1 금 (Gold)</h3>
+            <div class="success-box">
+                <table style="margin: 0; box-shadow: none;">
+                    <tr>
+                        <td><strong>현재가</strong></td>
+                        <td class="text-green">$5,060/oz</td>
+                    </tr>
+                    <tr>
+                        <td><strong>YTD 상승률</strong></td>
+                        <td>+11%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>연말 목표</strong></td>
+                        <td>$5,600/oz</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h4>강세 요인</h4>
+            <ul>
+                <li>중앙은행 매수 지속 (지정학적 리스크, 준비금 다변화)</li>
+                <li>연준 완화 기대</li>
+                <li>달러 약세 추세</li>
+            </ul>
+
+            <h3>3.2 원유 (Oil)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>유종</th>
+                        <th>전망가</th>
+                        <th>전망</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WTI</td>
+                        <td>$59/bbl</td>
+                        <td class="text-red">약세</td>
+                    </tr>
+                    <tr>
+                        <td>Brent</td>
+                        <td>$62/bbl</td>
+                        <td class="text-red">약세</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>약세 요인:</strong> OPEC 전망에서 공급이 수요를 충족 → 적자에서 균형으로 전환. 글로벌 수요 증가세 둔화.</p>
+
+            <h3>3.3 종합 전망</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>자산</th>
+                        <th>전망</th>
+                        <th>근거</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>금</td>
+                        <td class="text-green"><strong>강세</strong></td>
+                        <td>지정학, 중앙은행 매수</td>
+                    </tr>
+                    <tr>
+                        <td>은</td>
+                        <td>중립~강세</td>
+                        <td>금 추종</td>
+                    </tr>
+                    <tr>
+                        <td>원유</td>
+                        <td class="text-red"><strong>약세</strong></td>
+                        <td>공급 과잉</td>
+                    </tr>
+                    <tr>
+                        <td>구리</td>
+                        <td class="text-green">강세</td>
+                        <td>AI 인프라, 전기차</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="source-list">
+                <strong>Sources:</strong>
+                <ul>
+                    <li><a href="https://www.ig.com/en/news-and-trade-ideas/commodities-market-outlook-for-2026-251212" target="_blank">IG - Commodities Outlook 2026</a></li>
+                    <li><a href="https://www.iea.org/reports/oil-market-report-february-2026" target="_blank">IEA - Oil Market Report February 2026</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="china">
+            <h2>4. 중국 경제</h2>
+
+            <h3>4.1 GDP 성장률 전망</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>기관</th>
+                        <th>2026 GDP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Goldman Sachs</td>
+                        <td>4.8% (상향)</td>
+                    </tr>
+                    <tr>
+                        <td>Citi</td>
+                        <td>4.7%</td>
+                    </tr>
+                    <tr>
+                        <td>IMF</td>
+                        <td>4.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Fitch</td>
+                        <td>4.1%</td>
+                    </tr>
+                    <tr style="background-color: #e8f4fd;">
+                        <td><strong>정부 목표</strong></td>
+                        <td><strong>약 5%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.2 Two-Speed Economy (이중 속도 경제)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>영역</th>
+                        <th>상태</th>
+                        <th>설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>수출</strong></td>
+                        <td class="text-green">호조</td>
+                        <td>경상수지 흑자 GDP 대비 4.2% 예상</td>
+                    </tr>
+                    <tr>
+                        <td><strong>내수</strong></td>
+                        <td class="text-red">부진</td>
+                        <td>소비 침체, 부동산 위기 지속</td>
+                    </tr>
+                    <tr>
+                        <td><strong>인플레이션</strong></td>
+                        <td class="text-orange">디플레 우려</td>
+                        <td>헤드라인 인플레 저조</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>주요 리스크</h4>
+                <ol>
+                    <li><strong>부동산 위기</strong> - 주택 가격 하락 지속, 소비자 심리 위축</li>
+                    <li><strong>디플레이션</strong> - 내수 부진으로 가격 상승 압력 부재</li>
+                    <li><strong>수출 의존도</strong> - 무역 갈등 시 취약</li>
+                </ol>
+            </div>
+
+            <div class="source-list">
+                <strong>Sources:</strong>
+                <ul>
+                    <li><a href="https://www.goldmansachs.com/insights/articles/chinas-economy-expected-to-grow-in-2026-amid-surging-exports" target="_blank">Goldman Sachs - China Economy 2026</a></li>
+                    <li><a href="https://www.citigroup.com/global/insights/china-economics-2026-outlook-mind-the-gap" target="_blank">Citi - China Economics 2026 Outlook</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="geopolitics">
+            <h2>5. 지정학적 리스크</h2>
+
+            <h3>5.1 Top 3 리스크</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>이슈</th>
+                        <th>영향도</th>
+                        <th>발생 가능성</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>우크라이나-러시아</strong></td>
+                        <td class="text-red">높음</td>
+                        <td class="text-red">매우 높음</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>이란-이스라엘</strong></td>
+                        <td class="text-red">높음</td>
+                        <td class="text-orange">높음</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>미-중 긴장</strong></td>
+                        <td class="text-red">높음</td>
+                        <td>중간</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.2 우크라이나-러시아</h3>
+            <blockquote>
+                "우크라이나의 운명이 2026년에 결정될 가능성이 높으며, 그 결과는 국제 질서에 지진과 같은 영향을 미칠 것" — CFR
+            </blockquote>
+            <ul>
+                <li><strong>6월 휴전 데드라인</strong>: 미국이 제시한 협상 시한</li>
+                <li><strong>양측 인프라 공격 격화</strong> 예상</li>
+                <li>러시아 경제: 제재로 누적 손실 ~$400B</li>
+            </ul>
+
+            <h3>5.3 이란-이스라엘</h3>
+            <ul>
+                <li><strong>2025년 6월 12일 전쟁</strong> 이후 휴전 상태</li>
+                <li>양측 모두 적대적 입장 유지</li>
+                <li>재충돌 가능성 높음</li>
+            </ul>
+
+            <h3>5.4 기타 이슈</h3>
+            <ul>
+                <li><strong>베네수엘라</strong>: 마두로 정권 붕괴, 라틴아메리카 긴장</li>
+                <li><strong>그린란드</strong>: 트럼프 매입/병합 위협, 북극 자원 갈등</li>
+            </ul>
+
+            <div class="source-list">
+                <strong>Sources:</strong>
+                <ul>
+                    <li><a href="https://www.cfr.org/report/conflicts-watch-2026" target="_blank">CFR - Conflicts to Watch in 2026</a></li>
+                    <li><a href="https://www.wellington.com/en-us/institutional/insights/geopolitics-in-2026-risks-and-opportunities-were-watching" target="_blank">Wellington - Geopolitics in 2026</a></li>
+                    <li><a href="https://foreignpolicy.com/2026/01/02/top-10-risks-2026-ukraine-trump/" target="_blank">Foreign Policy - Top 10 Risks 2026</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="matrix">
+            <h2>6. 리스크 및 기회 매트릭스</h2>
+
+            <h3>6.1 주요 리스크</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>리스크</th>
+                        <th>영향도</th>
+                        <th>가능성</th>
+                        <th>대응 전략</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>연준 금리 인상</td>
+                        <td class="text-red">높음</td>
+                        <td>중간</td>
+                        <td>성장주 비중 축소, 채권 단기화</td>
+                    </tr>
+                    <tr>
+                        <td>암호화폐 추가 하락</td>
+                        <td class="text-red">높음</td>
+                        <td class="text-red">높음</td>
+                        <td>레버리지 회피, 분할 매수 대기</td>
+                    </tr>
+                    <tr>
+                        <td>우크라이나 전쟁 격화</td>
+                        <td>중간</td>
+                        <td class="text-red">높음</td>
+                        <td>유럽 자산 노출 관리</td>
+                    </tr>
+                    <tr>
+                        <td>중국 디플레 심화</td>
+                        <td>중간</td>
+                        <td>중간</td>
+                        <td>중국 연계 자산 모니터링</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>6.2 주요 기회</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>기회</th>
+                        <th>영향도</th>
+                        <th>가능성</th>
+                        <th>활용 전략</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>금 강세 지속</td>
+                        <td class="text-green">높음</td>
+                        <td class="text-green">높음</td>
+                        <td>금 ETF/실물 비중 확대</td>
+                    </tr>
+                    <tr>
+                        <td>암호화폐 바닥 매수</td>
+                        <td class="text-green">높음</td>
+                        <td>중간</td>
+                        <td>공포 지수 반등 시 진입</td>
+                    </tr>
+                    <tr>
+                        <td>AI 조정 후 반등</td>
+                        <td>중간</td>
+                        <td class="text-green">높음</td>
+                        <td>빅테크 분할 매수</td>
+                    </tr>
+                    <tr>
+                        <td>달러 약세</td>
+                        <td>중간</td>
+                        <td class="text-green">높음</td>
+                        <td>비달러 자산 비중 확대</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="strategy">
+            <h2>7. 투자 전략 시사점</h2>
+
+            <h3>7.1 자산배분 권고</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>자산군</th>
+                        <th>권고 비중</th>
+                        <th>근거</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>현금</strong></td>
+                        <td>20~25%</td>
+                        <td>변동성 대비, 기회 포착</td>
+                    </tr>
+                    <tr>
+                        <td><strong>채권</strong></td>
+                        <td>25~30%</td>
+                        <td>단기 위주, 금리 인상 리스크</td>
+                    </tr>
+                    <tr>
+                        <td><strong>주식</strong></td>
+                        <td>35~40%</td>
+                        <td>방어주 + AI 조정 후 매수</td>
+                    </tr>
+                    <tr>
+                        <td><strong>대체자산</strong></td>
+                        <td>10~15%</td>
+                        <td>금 중심, 암호화폐 소량</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>7.2 단기 전략 (2~4주)</h3>
+            <div class="highlight-box">
+                <ol>
+                    <li><strong>보수적 접근</strong> - "떨어지는 칼날" 구간</li>
+                    <li><strong>현금 비중 확보</strong> - 조정 시 매수 기회 대비</li>
+                    <li><strong>모니터링 필수 지표</strong>:
+                        <ul>
+                            <li>ETF 자금 흐름</li>
+                            <li>공포탐욕지수</li>
+                            <li>연준 발언/FOMC 의사록</li>
+                            <li>지정학 뉴스</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>7.3 중장기 전략 (Q2~)</h3>
+            <ul>
+                <li><strong>연준 금리 방향 확인 후</strong> 포지션 조정</li>
+                <li><strong>암호화폐</strong>: 바닥 확인 신호 시 분할 진입</li>
+                <li><strong>AI 섹터</strong>: 실적 기반 선별 투자</li>
+            </ul>
+        </section>
+
+        <section id="calendar">
+            <h2>8. 주요 일정 (2~3월)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>이벤트</th>
+                        <th>영향</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #e8f4fd;">
+                        <td><strong>2/22</strong></td>
+                        <td><strong>오늘</strong></td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>3월 중순</td>
+                        <td><strong>FOMC 회의</strong></td>
+                        <td>금리 결정 (동결 예상)</td>
+                    </tr>
+                    <tr>
+                        <td>3월 말</td>
+                        <td>일본 회계연도 말</td>
+                        <td>엔화 변동성</td>
+                    </tr>
+                    <tr>
+                        <td>4월 초</td>
+                        <td>Q1 실적 시즌 시작</td>
+                        <td>AI 섹터 주목</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #ddd; font-size: 0.85rem; color: #888;">
+            <h3 style="color: var(--primary-color); font-size: 1rem;">참고 자료</h3>
+            <p><strong>거시경제:</strong>
+                <a href="https://www.goldmansachs.com/insights/outlooks/2026-outlooks" target="_blank">Goldman Sachs</a> |
+                <a href="https://www.pwc.com/us/en/about-us/newsroom/press-releases/annual-outlook-2026.html" target="_blank">PwC</a> |
+                <a href="https://seekingalpha.com/article/4872730-global-economic-outlook-february-2026" target="_blank">Seeking Alpha</a>
+            </p>
+            <p><strong>암호화폐:</strong>
+                <a href="https://research.grayscale.com/reports/2026-digital-asset-outlook-dawn-of-the-institutional-era" target="_blank">Grayscale</a> |
+                <a href="https://panteracapital.com/blockchain-letter/navigating-crypto-in-2026/" target="_blank">Pantera</a>
+            </p>
+            <p style="margin-top: 1.5rem; text-align: center;">
+                본 보고서는 참고용 자료이며 투자 권유가 아닙니다. 모든 투자의 책임은 투자자 본인에게 있습니다.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
